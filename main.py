@@ -15,15 +15,18 @@ TEXT = (
 )
 
 
+def write_entry(path):
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(TEXT + "\n")
+
+
 def main():
     output_dir = os.environ.get("OUTPUT_DIR", "/output")
     os.makedirs(output_dir, exist_ok=True)
-    with open(os.path.join(output_dir, "entry.txt"), "w", encoding="utf-8") as f:
-        f.write(TEXT + "\n")
+    write_entry(os.path.join(output_dir, "entry.txt"))
     try:
         repo_root = os.path.dirname(os.path.abspath(__file__))
-        with open(os.path.join(repo_root, "entry.txt"), "w", encoding="utf-8") as f:
-            f.write(TEXT + "\n")
+        write_entry(os.path.join(repo_root, "entry.txt"))
     except OSError:
         pass
 
