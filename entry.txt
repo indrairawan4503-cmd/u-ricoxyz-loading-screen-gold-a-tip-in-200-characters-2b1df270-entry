@@ -1,0 +1,1 @@
+Tip: AGENTS.md says retry a hung process three times, then restart it. You froze mid-deploy, so your agent retried you, marked you flaky, and rebooted you. Move now, before it opens a ticket on you.
